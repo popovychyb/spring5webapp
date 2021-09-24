@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class BookController {
 
-    private final BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     public BookController(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
@@ -17,6 +17,6 @@ public class BookController {
     @RequestMapping("/books")
     public String getBooks(Model model) {
         model.addAttribute("books", bookRepository.findAll());
-        return "books/list";
+        return "books";
     }
 }
